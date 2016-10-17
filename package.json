@@ -1,6 +1,6 @@
 {
   "name": "flick-electric-api",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Javascript interface to query Flick Electric API",
   "main": "lib/flick-api.js",
   "scripts": {

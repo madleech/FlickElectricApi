@@ -18,7 +18,7 @@ class FlickAPI extends EventEmitter
 			}
 			.end (err, resp) =>
 				if err
-					@emit 'error', "Error", err
+					@emit 'error', err.response?.text || "Error", err
 				else if resp.body.id_token
 					@token = resp.body.id_token
 					@emit 'authenticated'

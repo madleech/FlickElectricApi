@@ -6,6 +6,7 @@ At home we use Flick Electric as our power company. Unlike most electricity rese
 The Flick mobile app is able to report the current realtime price to you, so obviously there is an API involved somewhere. Some quick snooping with mitmproxy soon revealed that there was a nicely thought out web API just waiting for me to talk to.
 
 Using the API, I am able to query the current market rate and act accordingly. For example:
+
 * By multiplying the current spot price by my current power consumption, I can measure my power usage in "dollar-hours"; i.e. how many dollars it would cost me if I kept consuming power at the current rate.
 * By cross referencing with a thermometer, then during Winter I can turn my heatpump on once the night time price kicks in, and turn it off again as soon as the morning power usage spikes. (11PM till 6AM).
 

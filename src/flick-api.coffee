@@ -34,12 +34,11 @@ class FlickAPI extends EventEmitter
 			.get 'https://api.flick.energy/customer/mobile_provider/price'
 			.set 'Authorization', "Bearer #{@token}"
 			.end (err, resp) =>
-				# {"kind":"mobile_provider_price","customer_state":"active","needle":{"position":2,"commentary":"Your price right now is limbo low.","price":18.037}}
+				# {"kind":"mobile_provider_price","customer_state":"active","needle":{"price":"20.049","status":"urn:flick:market:price:forecast","unit_code":"cents","per":"kwh","start_at":"2018-06-01T09:30:00Z","end_at":"2018-06-01T09:59:59Z","now":"2018-06-01T09:38:14.322Z","type":"rated","charge_methods":["kwh","spot_price"],"components":[{"charge_method":"kwh","value":"3.36"},{"charge_method":"kwh","value":"0.113"},{"charge_method":"kwh","value":"0.48"},{"charge_method":"kwh","value":"10.19"},{"charge_method":"spot_price","value":"5.906"}]}}
 				if err
 					@emit 'error', "Error", err
 				else if resp.body.kind == 'mobile_provider_price'
 					@emit 'price', resp.body.needle.price / 100
-					@emit 'commentary', resp.body.needle.commentary
 				else
 					@emit 'error', "Invalid response", resp.text
 
